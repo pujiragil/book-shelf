@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookApps</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Rubik:wght@600&display=swap" rel="stylesheet"> 
+</head>
+<body>
+  <main class="container">
+    <div class="header">
+      <h1 id="heading"><span class="highlight">B</span>ook<span class="highlight">A</span>pps</h1>
+    </div>
+    <div class="form-container">
+      <h2 class="form-header">Masukkan Data Buku</h2>
+      <form id="form">
+        <label for="judul" class="label">Judul</label>
+        <input autocomplete="off" required type="text" name="judul" id="judul" placeholder="Judul buku...">
+        <label for="penulis" class="label">Penulis</label>
+        <input autocomplete="off" required type="text" name="penulis" id="penulis" placeholder="Nama penulis...">
+        <label for="tahun" class="label">Tahun</label>
+        <input autocomplete="off" required type="number" maxlength="4" minlength="4" name="tahun" id="tahun" placeholder="Tahun rilis...">
+        <div class="check-section">
+          <label for="is-complete" class="label">Selesai dibaca</label>
+          <input type="checkbox" name="is-complete" id="is-complete">
+        </div>
+        <input type="submit" id="button-submit" value="Tambahkan ke dalam list">
+      </form>
+    </div>
+    <div class="booklist-container">
+      <div class="booklist-section">
+        <h2 class="book-header">Belum Selesai Dibaca</h2>
+        <div class="booklist" id="uncomplete-books">
+          <!-- <div class="bookitem">
+            <div class="bookitem--teks">
+              <h4 class="bookitem--header">Makan Bang</h4>
+              <p class="bookitem--author">Young Lex</p>
+              <p class="bookitem--year">1020</p>
+            </div>
+            <div class="bookitem--button">
+              <button class="button" id="add-complete-button"><img src="./assets/images/add-dark.svg" onmouseover="this.src='./assets/images/add-light.svg'" onmouseleave="this.src='./assets/images/add-dark.svg'" alt="add"></button>
+              <button class="button" id="remove-button"><img src="./assets/images/trash-dark.svg" onmouseover="this.src='./assets/images/trash-light.svg'" onmouseleave="this.src='./assets/images/trash-dark.svg'" alt="trash"></button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="booklist-section">
+        <h2 class="book-header">Selesai Dibaca</h2>
+        <div class="booklist" id="complete-books"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>

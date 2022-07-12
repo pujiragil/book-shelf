@@ -1,0 +1,228 @@
+:root {
+  --blur: 3.6399999999999997px;
+  --spread: -2.6px;
+  --horiz: 1.5647190601953256px;
+  --vert: 2.0764523261229613px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  object-fit: cover;
+  background-size: cover;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  margin: 1rem 0;
+}
+
+#heading {
+  letter-spacing: 1.5px;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+span.highlight {
+  font-family: 'Rubik', sans-serif;
+  font-size: 3rem;
+  color: #13547a;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: calc(clamp(0px, var(--horiz), 2px)) calc(clamp(0px, var(--vert), 2px)) 2px calc(var(--spread)) rgba(0, 0, 0, 0.233), calc(2 * var(--horiz)) calc(2 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.20), calc(3 * var(--horiz)) calc(3 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.123), calc(5 * var(--horiz)) calc(5 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.076), calc(8 * var(--horiz)) calc(8 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.047), calc(13 * var(--horiz)) calc(13 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.028);
+  border: 1px solid rgba(0, 0, 0, 0.068);
+  padding: 50px;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-header {
+  color: #13547a;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.label {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #13547a;
+  letter-spacing: 1.5px;
+}
+
+#form input {
+  margin-bottom: 1rem;
+  outline: none;
+  width: 100%;
+  border: none;
+}
+
+#form input:focus {
+  border-bottom: 2px solid #13547a;
+}
+
+.check-section {
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+  width: 30%;
+  margin-bottom: 1rem;
+}
+
+.check-section input#is-complete {
+  display: flex;
+  width: auto;
+  align-self: center;
+  cursor: pointer;
+  justify-content: flex-start;
+}
+
+#form #button-submit {
+  padding: 15px;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #13547a;
+  border: 2px solid #13547a;
+  transition: all 0.2s ease-in-out;
+}
+
+#form #button-submit:hover {
+  background-color: #13547a;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.booklist-container {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: calc(clamp(0px, var(--horiz), 2px)) calc(clamp(0px, var(--vert), 2px)) 2px calc(var(--spread)) rgba(0, 0, 0, 0.233), calc(2 * var(--horiz)) calc(2 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.20), calc(3 * var(--horiz)) calc(3 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.123), calc(5 * var(--horiz)) calc(5 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.076), calc(8 * var(--horiz)) calc(8 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.047), calc(13 * var(--horiz)) calc(13 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.028);
+  border: 1px solid rgba(0, 0, 0, 0.068);
+  padding: 50px;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.book-header {
+  color: #13547a;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.booklist-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.booklist {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.bookitem {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #13547a;
+}
+
+.bookitem--header {
+  letter-spacing: 1.5px;
+  color: #13547a;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.bookitem--author {
+  font-style: italic;
+  color: #2b2b2b;
+}
+
+.bookitem--year {
+  color: #2b2b2b;
+}
+
+.bookitem--button {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid #13547a;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.button img {
+  z-index: 1;
+  padding: 5px 25px;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.button img:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transition: all 0.3s ease-in-out;
+  background: #13547a;
+}
+
+#add-complete-button, #undo-complete-button {
+  margin-right: 5px;
+}
