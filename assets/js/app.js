@@ -175,3 +175,5 @@ function removeBook({id}) {
   books.splice(bookTarget, 1);
   document.dispatchEvent(new Event(RENDER_BOOK));
 }
+
+console.log('Hello World');
