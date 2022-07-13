@@ -43,10 +43,13 @@ document.addEventListener(RENDER_BOOK, function() {
 
 function hideContent() {
   const containerBookItem = document.querySelector('.booklist-container');
+  const containerSearchItem = document.querySelector('.search-booklist--container');
   if(books.length === 0) {
     containerBookItem.classList.add('hidden');
+    containerSearchItem.classList.add('hidden');
   }else {
     containerBookItem.classList.remove('hidden');
+    containerSearchItem.classList.remove('hidden');
   }
 
   document.dispatchEvent(new Event(RENDER_BOOK));
