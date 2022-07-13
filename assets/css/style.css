@@ -124,6 +124,63 @@ span.highlight {
   transition: all 0.2s ease-in-out;
 }
 
+.search-booklist--container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: calc(clamp(0px, var(--horiz), 2px)) calc(clamp(0px, var(--vert), 2px)) 2px calc(var(--spread)) rgba(0, 0, 0, 0.233), calc(2 * var(--horiz)) calc(2 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.20), calc(3 * var(--horiz)) calc(3 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.123), calc(5 * var(--horiz)) calc(5 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.076), calc(8 * var(--horiz)) calc(8 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.047), calc(13 * var(--horiz)) calc(13 * var(--vert)) calc(var(--blur)) calc(var(--spread)) rgba(0, 0, 0, 0.028);
+  border: 1px solid rgba(0, 0, 0, 0.068);
+  padding: 50px;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+#search-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-input-wrap {
+  display: flex;
+  width: 100%;
+}
+
+#search-input {
+  flex: 4;
+  padding: 10px 35px;
+  margin-right: 5px;
+  border: 2px solid #13547a;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  outline: none;
+}
+
+#search-button {
+  flex: 1;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #13547a;
+  outline: none;
+  color: #13547a;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  padding: 10px 35px;
+  transition: all 0.2s ease-in-out;
+}
+
+#search-button:hover {
+  background-color: #13547a;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
 .booklist-container {
   margin: 50px 0;
   display: flex;
@@ -137,6 +194,10 @@ span.highlight {
   max-width: 700px;
   width: 100%;
   border-radius: 15px;
+}
+
+.hidden {
+  display: none;
 }
 
 .book-header {
@@ -163,6 +224,7 @@ span.highlight {
 }
 
 .bookitem {
+  margin-bottom: 1rem;
   background-color: #fff;
   border-radius: 5px;
   padding: 10px 20px;

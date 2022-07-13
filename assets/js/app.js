@@ -1,9 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Submit Form
   const formSubmit = document.getElementById('form');
   formSubmit.addEventListener('submit', function(event) {
     event.preventDefault();
     addBook();
   });
+
+  // Filter Form
+  const searchForm = document.getElementById('search-form');
+  searchForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    filterBook();
+  });
+
+  if(storageIsAvailable()) {
+    loadDataFromStorage();
+  }
+
+  hideContent();
 });
 
 const RENDER_BOOK = 'book-data';
@@ -27,6 +41,17 @@ document.addEventListener(RENDER_BOOK, function() {
   }
 });
 
+function hideContent() {
+  const containerBookItem = document.querySelector('.booklist-container');
+  if(books.length === 0) {
+    containerBookItem.classList.add('hidden');
+  }else {
+    containerBookItem.classList.remove('hidden');
+  }
+
+  document.dispatchEvent(new Event(RENDER_BOOK));
+}
+
 function addBook() {
   const id = generateId();
   const title = document.getElementById('judul').value;
@@ -37,6 +62,28 @@ function addBook() {
   books.push(bookObj);
 
   document.dispatchEvent(new Event(RENDER_BOOK));
+  saveStorage();
+  hideContent();
+}
+
+function filterBook() {
+  const uncompletedBooks = document.getElementById('uncomplete-books');
+  uncompletedBooks.innerHTML = '';
+
+  const completeBooks = document.getElementById('complete-books');
+  completeBooks.innerHTML = '';
+
+  const searchInput = document.querySelector('#search-input').value.toLowerCase();
+  books.filter(book => {
+    if(book.title.toLowerCase().includes(searchInput)) {
+      const bookFiltered = createBookList(book);
+      if(book.isComplete) {
+        completeBooks.append(bookFiltered);
+      } else {{
+        uncompletedBooks.append(bookFiltered);
+      }}
+    }
+  });
 }
 
 function generateId() {
@@ -156,6 +203,8 @@ function addBookToComplete({id}) {
 
   bookTarget.isComplete = true;
   document.dispatchEvent(new Event(RENDER_BOOK));
+  saveStorage();
+  hideContent();
 }
 
 function undoBookFromComplete({id}) {
@@ -165,6 +214,8 @@ function undoBookFromComplete({id}) {
 
   bookTarget.isComplete = false;
   document.dispatchEvent(new Event(RENDER_BOOK));
+  saveStorage();
+  hideContent();
 }
 
 function removeBook({id}) {
@@ -173,5 +224,46 @@ function removeBook({id}) {
   if(bookTarget === -1) return;
 
   books.splice(bookTarget, 1);
+  document.dispatchEvent(new Event(RENDER_BOOK));
+  saveStorage();
+  hideContent();
+}
+
+// LocalStorage
+const BOOK_KEY = 'book-data';
+const RENDER_SAVED_BOOK = 'saved-book';
+
+document.addEventListener(RENDER_SAVED_BOOK, function() {
+  console.log(localStorage.getItem(BOOK_KEY));
+});
+
+function storageIsAvailable() {
+  if(typeof(Storage) === undefined) {
+    alert('Maaf browser Anda tidak support penggunaan web storage.');
+    return false;
+  }
+
+  return true;
+}
+
+function saveStorage() {
+  if(storageIsAvailable()) {
+    const bookDataString = JSON.stringify(books);
+    localStorage.setItem(BOOK_KEY, bookDataString);
+
+    document.dispatchEvent(new Event(RENDER_SAVED_BOOK));
+  }
+}
+
+function loadDataFromStorage() {
+  const bookDataParsed = localStorage.getItem(BOOK_KEY);
+  const datas = JSON.parse(bookDataParsed);
+
+  if(datas !== null) {
+    for(const data of datas) {
+      books.push(data);
+    }
+  }
+
   document.dispatchEvent(new Event(RENDER_BOOK));
 }
